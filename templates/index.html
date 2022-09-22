@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Hate Speech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div>
+
+    <div class="header">
+      <h1>Predict Hate Speech</h1>
+    </div>
+    <div class="chat">
+      {{ prediction_text | safe }}
+    </div>
+
+    <div class="form">
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" class="text" name="statement" />
+      </form>
+    </div>
+ </div>
+
+
+</body>
+<style>
+  body {
+    background-color: #ededed;
+    background-image: url(bi.bmp);
+  }
+
+  .header {
+    background-color: #444791;
+    padding: 1px;
+    padding-left: 37%;
+    color: #ededed;
+  }
+
+  .chat {
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* text-align: center; */
+    padding: 20px;
+  }
+
+  .text {
+    height: 70px;
+    width: 100%;
+  }
+
+  .form {
+    padding: 10px;
+  }
+
+  .btn {
+    border: 1px solid black;
+    color: white;
+    padding: 5px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+  }
+
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+
+  .blocked {
+    background-color: #cdcdcd;
+    color: #c02424;
+    padding: 9px;
+  }
+
+  .notblocked {
+    background-color: #cdcdcd99;
+    color: #000000;
+    padding: 8px;
+  }
+</style>
+
+</html>
